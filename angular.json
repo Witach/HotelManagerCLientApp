@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hotelmanagerapp"
+    }
+  },
+  "defaultProject": "hotelmanagerapp",
+  "cli": {
+    "analytics": "a226834c-c553-4233-b92b-6e79427b96f9"
+  }
 }
