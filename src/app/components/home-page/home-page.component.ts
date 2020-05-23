@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgbCalendar, NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
-import {faCalendarAlt, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {RoomSerching} from '../service/room-serching';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
 import {RoomService} from '../service/room.service';
 import {Room} from '../entities/room';
 
@@ -31,10 +27,14 @@ export class HomePageComponent implements OnInit {
 
   onSearchSelected(searchItem: RoomSerching) {
     this.searchItem = searchItem;
-    this.roomService.getPageOfRooms({size: 20, page: 1}, this.searchItem)
-      .subscribe( roomPage => {
+    this.roomService.getPageOfRooms({size: 20, page: 0}, this.searchItem)
+      .subscribe(roomPage => {
         this.roomAmount = roomPage.page.totalElements;
-        this.roomList = roomPage.roomList;
+        if (this.roomAmount) {
+          this.roomList = roomPage.roomList;
+        } else {
+          this.roomList = [];
+        }
       });
   }
 }

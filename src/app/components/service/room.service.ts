@@ -16,17 +16,17 @@ export class RoomService {
   }
 
   public getPageOfRooms(page: { size: number; page: number }, filters: RoomSerching): Observable<{ roomList: Room[], page: Page }> {
-    const params = new HttpParams();
+    let params = new HttpParams();
     const paramsObj = {...page, ...filters};
     for (const param in paramsObj) {
-      if (paramsObj.hasOwnProperty(param)) {
-        params.append(param, paramsObj[param]);
+      if (paramsObj.hasOwnProperty(param) && paramsObj[param] && (paramsObj[param]?.length || typeof paramsObj[param] === 'number' )) {
+        params = params.append(param, paramsObj[param]);
       }
     }
     return this.http.get<any>(environment.linkForBackend + '/rooms', {params})
       .pipe(map(
         json => {
-          return {roomList: json._embedded.roomList, page: json.page};
+          return {roomList: json?._embedded?.roomList, page: json.page};
         }
       ));
   }

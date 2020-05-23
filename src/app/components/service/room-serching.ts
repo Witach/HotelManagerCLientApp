@@ -1,6 +1,6 @@
 export interface RoomSerching {
-  fromDate?: Date;
-  toDate?: Date;
+  fromDate?: string;
+  toDate?: string;
   area?: number;
   personAmount?: number;
   tags?: string[];

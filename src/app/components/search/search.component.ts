@@ -27,7 +27,8 @@ export class SearchComponent implements OnInit {
   tags: Tag[] = [];
   types: Type[] = [];
 
-  @Output('searchClicked') searchEvent: EventEmitter<RoomSerching> = new EventEmitter<RoomSerching>();
+  @Output('searchClicked')
+  searchEvent: EventEmitter<RoomSerching> = new EventEmitter<RoomSerching>();
 
   constructor(private calendar: NgbCalendar,
               public formatter: NgbDateParserFormatter,
@@ -46,12 +47,12 @@ export class SearchComponent implements OnInit {
 
   onSubmitClick(formRef: NgForm): void {
     this.searching = {
-      fromDate: this.convertToDate(this.fromDate),
-      toDate: this.convertToDate(this.toDate),
+      fromDate: formRef.value.fromDate,
+      toDate: formRef.value.toDate,
       area: formRef.value.area,
-      fromPrice: formRef.value.minPrice,
-      toPrice: formRef.value.maxPrice,
-      types: [formRef.value.type],
+      fromPrice: formRef.value.minPrice ? formRef.value.minPrice : null,
+      toPrice: formRef.value.maxPrice ? formRef.value.maxPrice : null,
+      types: formRef.value.type,
       personAmount: formRef.value.personAmount,
       tags: this.getStringOfCheckedTags(formRef.value.tags)
     };
@@ -68,7 +69,7 @@ export class SearchComponent implements OnInit {
   }
 
   getStringOfCheckedTags(tags: object): string[] {
-    return Object.keys(tags).reduce((list, key) => {
+    return  Object.keys(tags).reduce((list, key) => {
       if (tags.hasOwnProperty(key) && tags[key]) {
         list.push(key);
       }
@@ -76,8 +77,12 @@ export class SearchComponent implements OnInit {
     }, []);
   }
 
-  convertToDate(date: NgbDate): Date {
-    return new Date(date.year, date.month - 1, date.day);
+  convertToDateString(date: NgbDate): string {
+    if (date) {
+      return new Date(date.year, date.month - 1, date.day).toJSON().slice(0, 10);
+    } else {
+      return '';
+    }
   }
 
   onDateSelection(date: NgbDate) {
@@ -104,6 +109,9 @@ export class SearchComponent implements OnInit {
   }
 
   validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
+    if(!input.length){
+      return null;
+    }
     const parsed = this.formatter.parse(input);
     return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
   }
