@@ -50,8 +50,8 @@ export class SearchComponent implements OnInit {
       fromDate: formRef.value.fromDate,
       toDate: formRef.value.toDate,
       area: formRef.value.area,
-      fromPrice: formRef.value.minPrice ? formRef.value.minPrice : null,
-      toPrice: formRef.value.maxPrice ? formRef.value.maxPrice : null,
+      fromPrice: formRef.value.minPrice || null,
+      toPrice: formRef.value.maxPrice || null,
       types: formRef.value.type,
       personAmount: formRef.value.personAmount,
       tags: this.getStringOfCheckedTags(formRef.value.tags)

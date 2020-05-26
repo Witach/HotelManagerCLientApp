@@ -9,3 +9,16 @@
 .container{
   margin-top: 20vh;
 }
+
+input.ng-invalid.ng-touched{
+  border: #dc3545 1px solid;
+}
+
+input.ng-valid.ng-touched{
+  border: #28a745 1px solid;
+}
+
+
+input.invalid.ng-touched{
+  border: #dc3545 1px solid;
+}
