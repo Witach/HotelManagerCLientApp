@@ -8,6 +8,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {SearchComponent} from './components/search/search.component';
+import {RoomComponent} from './components/room/room.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent},
+  {path: 'room/:id', component: RoomComponent}
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import {Room} from '../entities/room';
 import {environment} from '../../../environments/environment';
 import {RoomSerching} from './room-serching';
 import {map} from 'rxjs/operators';
+import {Reservation} from '../entities/reservation';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,10 @@ export class RoomService {
           return {roomList: json?._embedded?.roomList, page: json.page};
         }
       ));
+  }
+
+  public getRoomReservations(id: number): Observable<Reservation[]>{
+    return this.http.get<Reservation[]>(environment.linkForBackend + `/rooms/${id}/reservations`);
   }
 
   public postRoom(room: Room): Observable<Room> {

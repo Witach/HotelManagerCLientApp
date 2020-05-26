@@ -20,6 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import {AgmCoreModule} from '@agm/core';
 import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule} from '@angular/forms';
+import { ReservationDatePickerComponent } from './components/reservation-date-picker/reservation-date-picker.component';
 
 registerLocaleData(localePl);
 
@@ -35,7 +36,8 @@ registerLocaleData(localePl);
     LoginComponent,
     RegisterComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ReservationDatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ registerLocaleData(localePl);
     }),
     FormsModule,
   ],
-  providers: [RoomCardComponent, RoomListComponent],
+  providers: [RoomCardComponent, RoomListComponent, ReservationDatePickerComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
