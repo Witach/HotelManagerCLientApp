@@ -5,3 +5,7 @@
 .card{
   background-color: rgba(148,187,233,0.1);
 }
+
+.container{
+  margin-top: 20vh;
+}
