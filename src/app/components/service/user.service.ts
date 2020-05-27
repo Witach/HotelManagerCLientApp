@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {LoginCredentials} from '../entities/login-credentials';
 import {map} from 'rxjs/operators';
+import {UserModel} from '../entities/user-model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +29,17 @@ export class UserService {
     return this.http.post<any>(`${environment.linkForBackend}/auth`, {headers: httpHeaders})
       .pipe(map(val => {
         const user: LoginCredentials = {
-          token:  window.btoa(username + ':' + password),
+          token: window.btoa(username + ':' + password),
           username
         };
         localStorage.setItem('userValue', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;
       }));
+  }
+
+  register(newUser: UserModel): Observable<any> {
+    return this.http.post(environment.linkForBackend + '/register', newUser);
   }
 
   logout() {

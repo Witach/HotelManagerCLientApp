@@ -9,3 +9,20 @@
   margin-top: 15vh;
   margin-bottom: 15vh;
 }
+input.ng-invalid.ng-touched{
+  border: #dc3545 1px solid;
+}
+
+input.ng-valid.ng-touched{
+  border: #28a745 1px solid;
+}
+
+
+input.invalid.ng-touched{
+  border: #dc3545 1px solid;
+}
+.text-red{
+  color: #dc3545;
+  min-height: 24px;
+  line-height: 24px;
+}

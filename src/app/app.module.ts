@@ -19,7 +19,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {AgmCoreModule} from '@agm/core';
 import {FooterComponent} from './components/footer/footer.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReservationDatePickerComponent} from './components/reservation-date-picker/reservation-date-picker.component';
 import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
@@ -49,6 +49,7 @@ registerLocaleData(localePl);
     NgbPaginationModule,
     NgbAlertModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBhzAitclN7qmw36iBq7a6KiboI_dVHrdg'
     }),
