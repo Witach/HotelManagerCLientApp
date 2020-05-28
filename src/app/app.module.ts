@@ -23,6 +23,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReservationDatePickerComponent} from './components/reservation-date-picker/reservation-date-picker.component';
 import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
+import { AccountComponent } from './components/account/account.component';
 
 registerLocaleData(localePl);
 
@@ -39,7 +40,8 @@ registerLocaleData(localePl);
     RegisterComponent,
     ContactComponent,
     FooterComponent,
-    ReservationDatePickerComponent
+    ReservationDatePickerComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

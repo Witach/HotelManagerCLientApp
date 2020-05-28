@@ -5,13 +5,19 @@ import {environment} from '../../../environments/environment';
 import {LoginCredentials} from '../entities/login-credentials';
 import {map} from 'rxjs/operators';
 import {UserModel} from '../entities/user-model';
+import {User} from '../entities/user';
+import {UserEdit} from '../entities/user-edit';
+import {Person} from '../entities/person';
+import {Contact} from '../entities/contact';
+import {PersonEdit} from '../entities/person-edit';
+import {ContactEdit} from '../entities/contact-edit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private currentUserSubject: BehaviorSubject<LoginCredentials>;
+  public currentUserSubject: BehaviorSubject<LoginCredentials>;
   public currentUser: Observable<LoginCredentials>;
 
   constructor(private http: HttpClient) {
@@ -24,9 +30,8 @@ export class UserService {
   }
 
   login(username: string, password: string): Observable<LoginCredentials> {
-    let httpHeaders = new HttpHeaders();
-    httpHeaders = httpHeaders.set('Authorization', 'Basic ' + window.btoa(username + ':' + password));
-    return this.http.post<any>(`${environment.linkForBackend}/auth`, {headers: httpHeaders})
+    const httpHeaders = new HttpHeaders({Authorization:  'Basic ' + window.btoa(username + ':' + password)});
+    return this.http.post<any>(`${environment.linkForBackend}/auth`, {},{headers: httpHeaders})
       .pipe(map(val => {
         const user: LoginCredentials = {
           token: window.btoa(username + ':' + password),
@@ -45,6 +50,22 @@ export class UserService {
   logout() {
     localStorage.removeItem('userValue');
     this.currentUserSubject.next(null);
+  }
+
+  editUser(userEdit: UserEdit, username: string): Observable<User> {
+    return this.http.put<User>(environment.linkForBackend + '/user/' + username, userEdit);
+  }
+
+  editPerson(person: PersonEdit, id: number): Observable<Person> {
+    return this.http.put<Person>(environment.linkForBackend + '/people/' + id, person);
+  }
+
+  editContact(contact: ContactEdit, id: number): Observable<Contact[]> {
+    return this.http.put<Contact[]>(environment.linkForBackend + '/contacts/' + id, contact);
+  }
+
+  getUserInfo(username: string): Observable<User> {
+    return this.http.get<User>(environment.linkForBackend + '/user/' + username);
   }
 
 }

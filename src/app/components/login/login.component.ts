@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     //   this.err = 'Email jest niepoprawny';
     // }
     if (flag) {
-      this.userService.login('admin@wp.pl', 'admin')
+      this.userService.login('admin@wp.pl', 'dupa')
         .subscribe( val => console.log(val));
     }
   }
