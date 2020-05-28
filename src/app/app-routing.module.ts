@@ -10,6 +10,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {SearchComponent} from './components/search/search.component';
 import {RoomComponent} from './components/room/room.component';
 import {AccountComponent} from './components/account/account.component';
+import {ReservationsComponent} from './components/reservations/reservations.component';
 
 
 const routes: Routes = [

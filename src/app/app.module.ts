@@ -24,6 +24,7 @@ import {ReservationDatePickerComponent} from './components/reservation-date-pick
 import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
 import {AccountComponent} from './components/account/account.component';
+import {ReservationsComponent} from './components/reservations/reservations.component';
 
 registerLocaleData(localePl);
 
