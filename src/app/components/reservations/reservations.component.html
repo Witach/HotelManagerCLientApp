@@ -1,0 +1,56 @@
+<div class="container w-60 mt-5 p-4 text-center card shadow">
+  <span class="display-4">Twoje rezerwacje</span>
+
+  <div *ngFor="let res of reservations" class="container mt-5">
+    <div class="card shadow-sm rounded w-75 m-auto font-weight-light">
+
+      <div class="row">
+        <div class="col">
+          <label class="float-left m-2 font-weight-normal">Rezerwacja</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="float-left m-1 pl-3">Liczba zarezerwowanych pokoi: {{res.roomSet.length}}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+          <label class="float-left m-1 pl-3">Pokoje:</label>
+        </div>
+        <div class="col">
+          <div class="container">
+            <div *ngFor="let room of res.roomSet" class="card shadow-sm rounded float-left m-1">
+              {{room.roomNumber}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="float-left m-1 pl-3">Początek rezerwacji:
+            <label class="font-weight-normal">
+              {{res.fromDate.getDate()}}.{{res.fromDate.getMonth()}}.{{res.fromDate.getFullYear()}}
+              {{res.fromDate.getHours()}}:{{res.fromDate.getMinutes()}}
+            </label>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="float-left m-1 pl-3">Koniec rezerwacji:
+            <label class="font-weight-normal">
+              {{res.toDate.getDate()}}.{{res.toDate.getMonth()}}.{{res.toDate.getFullYear()}}
+              {{res.toDate.getHours()}}:{{res.toDate.getMinutes()}}
+            </label>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

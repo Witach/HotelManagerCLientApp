@@ -23,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReservationDatePickerComponent} from './components/reservation-date-picker/reservation-date-picker.component';
 import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
-import { AccountComponent } from './components/account/account.component';
+import {AccountComponent} from './components/account/account.component';
 
 registerLocaleData(localePl);
 
@@ -41,7 +41,9 @@ registerLocaleData(localePl);
     ContactComponent,
     FooterComponent,
     ReservationDatePickerComponent,
-    AccountComponent
+    AccountComponent,
+    ReservationDatePickerComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ registerLocaleData(localePl);
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBhzAitclN7qmw36iBq7a6KiboI_dVHrdg'
     }),
-    FormsModule,
+    FormsModule
   ],
   providers: [
     RoomCardComponent,
