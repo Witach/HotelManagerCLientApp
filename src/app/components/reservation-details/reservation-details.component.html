@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="display-4 text-center card-title mb-5 mt-4">Twoja rezerwacja</div>
+    <div class="mb-4 room-card">
+      <div class="card mb-4">
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Pokój {{bill.reservation.roomSet[0].personAmount}}-osobowy</h5>
+              <p class="font-weight-light">{{bill.reservation.roomSet[0].description}}</p>
+              <p class="card-text">
+                <small class="text-muted">
+                  Wielkość pokoju: <span class="font-weight-bold">{{bill.reservation.roomSet[0].area}}m2</span>
+                  <br>
+                  Cena za dzień: <span class="font-weight-bold">{{bill.reservation.roomSet[0].price}}zł</span>
+                  <br>
+                  Numer pokoju: <span class="font-weight-bold">{{bill.reservation.roomSet[0].roomNumber}}</span>
+                </small>
+              </p>
+            </div>
+          </div>
+          <div class="col-6">
+            <img src="assets/images/room.jpg" class="card-img" alt="...">
+          </div>
+        </div>
+      </div>
+      <div class="reservation-details font-weight-light">
+        <div>Rezerwacja na nazwisko:
+          <label class="font-weight-normal">
+            {{bill.tenant.firstName}} {{bill.tenant.lastName}}
+          </label>
+        </div>
+        <div>Poczatek rezerwacji:
+          <label class="font-weight-normal">
+            {{bill.reservation.fromDate.getDate()}}.{{bill.reservation.fromDate.getMonth()}}.{{bill.reservation.fromDate.getFullYear()}}
+            {{bill.reservation.fromDate.getHours()}}:{{bill.reservation.fromDate.getMinutes()}}
+          </label>
+          <div>Koniec rezerwacji:
+            <label class="font-weight-normal">
+              {{bill.reservation.toDate.getDate()}}.{{bill.reservation.toDate.getMonth()}}.{{bill.reservation.toDate.getFullYear()}}
+              {{bill.reservation.toDate.getHours()}}:{{bill.reservation.toDate.getMinutes()}}
+            </label>
+          </div>
+          <div>Do zapłaty:
+            <label class="font-weight-normal">
+              {{bill.price}}zł
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

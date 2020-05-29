@@ -25,6 +25,8 @@ import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
 import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
+import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
+
 
 registerLocaleData(localePl);
 
