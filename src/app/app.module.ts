@@ -23,8 +23,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReservationDatePickerComponent} from './components/reservation-date-picker/reservation-date-picker.component';
 import {ErrorInterceptor} from './components/service/error.interceptor';
 import {AuthInterceptor} from './components/service/auth.interceptor';
-import { ReservationsComponent } from './components/reservations/reservations.component';
-import { ReservationDetailsComponent } from './components/reservation-details/reservation-details.component';
+import {AccountComponent} from './components/account/account.component';
+import {ReservationsComponent} from './components/reservations/reservations.component';
+import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
 
 
 registerLocaleData(localePl);
@@ -43,8 +44,9 @@ registerLocaleData(localePl);
     ContactComponent,
     FooterComponent,
     ReservationDatePickerComponent,
-    ReservationsComponent,
-    ReservationDetailsComponent
+    AccountComponent,
+    ReservationDatePickerComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

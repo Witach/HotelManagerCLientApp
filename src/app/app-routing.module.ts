@@ -9,6 +9,7 @@ import {ContactComponent} from './components/contact/contact.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {SearchComponent} from './components/search/search.component';
 import {RoomComponent} from './components/room/room.component';
+import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
 
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'search', component: SearchComponent},
+  {path: 'room/:id', component: RoomComponent},
+  {path: 'account/:email', component: AccountComponent},
   {path: 'room/:id', component: RoomComponent},
   {path: 'reservations', component: ReservationsComponent},
   {path: 'reservation/details', component: ReservationDetailsComponent}
