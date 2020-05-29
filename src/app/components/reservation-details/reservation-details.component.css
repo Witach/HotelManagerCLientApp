@@ -1,0 +1,12 @@
+.room-card{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card-title{
+  color: #e83e8c;
+}
+
+.reservation-details{
+  font-size: 20px;
+}
