@@ -3,7 +3,7 @@ import {Bill} from './bill';
 
 export interface Reservation {
   id: number;
-  roomSet: Array<Room>;
+  room: Room;
   bill: Bill;
   fromDate: Date;
   toDate: Date;

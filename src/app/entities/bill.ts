@@ -7,5 +7,4 @@ export interface Bill {
   price: number;
   reservation: Reservation;
   tenant: Person;
-  administrator: User;
 }
