@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RoomSerching} from '../service/room-serching';
-import {RoomService} from '../service/room.service';
-import {Room} from '../entities/room';
+import {RoomSerching} from '../../service/room-serching';
+import {RoomService} from '../../service/room.service';
+import {Room} from '../../entities/room';
 
 @Component({
   selector: 'app-home-page',

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Room} from '../entities/room';
+import {Room} from '../../entities/room';
 
 @Component({
   selector: 'app-room-card',

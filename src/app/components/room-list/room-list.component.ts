@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RoomService} from '../service/room.service';
-import {Room} from '../entities/room';
-import {Page} from '../entities/page';
+import {RoomService} from '../../service/room.service';
+import {Room} from '../../entities/room';
+import {Page} from '../../entities/page';
 
 @Component({
   selector: 'app-room-list',

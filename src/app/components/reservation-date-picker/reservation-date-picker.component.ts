@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbCalendar, NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
-import {Reservation} from '../entities/reservation';
+import {Reservation} from '../../entities/reservation';
 
 @Component({
   selector: 'app-reservation-date-picker',

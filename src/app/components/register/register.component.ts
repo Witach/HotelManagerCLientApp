@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-import {UserService} from '../service/user.service';
+import {UserService} from '../../service/user.service';
 import {catchError} from 'rxjs/operators';
 
 @Component({

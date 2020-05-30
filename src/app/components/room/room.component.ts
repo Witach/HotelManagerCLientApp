@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {faPlus, faSearch} from '@fortawesome/free-solid-svg-icons';
-import {RoomService} from '../service/room.service';
-import {Reservation} from '../entities/reservation';
+import {RoomService} from '../../service/room.service';
+import {Reservation} from '../../entities/reservation';
 import {Router} from '@angular/router';
 import {consoleTestResultHandler} from 'tslint/lib/test';
-import {Room} from '../entities/room';
+import {Room} from '../../entities/room';
 
 @Component({
   selector: 'app-room',

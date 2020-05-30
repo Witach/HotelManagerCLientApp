@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {NgForm} from '@angular/forms';
 import {tokenReference} from '@angular/compiler';
-import {UserService} from '../service/user.service';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'app-login',

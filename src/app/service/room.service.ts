@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Page} from '../entities/page';
 import {Observable} from 'rxjs';
 import {Room} from '../entities/room';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../environments/environment';
 import {RoomSerching} from './room-serching';
 import {map} from 'rxjs/operators';
 import {Reservation} from '../entities/reservation';

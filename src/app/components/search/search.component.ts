@@ -1,12 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {faCalendarAlt, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {NgbCalendar, NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
-import {RoomSerching, validRoomSearching} from '../service/room-serching';
+import {RoomSerching, validRoomSearching} from '../../service/room-serching';
 import {NgForm} from '@angular/forms';
-import {TagService} from '../service/tag.service';
-import {Tag} from '../entities/tag';
-import {TypeService} from '../service/type.service';
-import {Type} from '../entities/type';
+import {TagService} from '../../service/tag.service';
+import {Tag} from '../../entities/tag';
+import {TypeService} from '../../service/type.service';
+import {Type} from '../../entities/type';
 
 @Component({
   selector: 'app-search',

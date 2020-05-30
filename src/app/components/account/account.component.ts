@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-import {UserService} from '../service/user.service';
-import {Contact} from '../entities/contact';
-import {User} from '../entities/user';
+import {UserService} from '../../service/user.service';
+import {Contact} from '../../entities/contact';
+import {User} from '../../entities/user';
 import {tap} from 'rxjs/operators';
 
 @Component({

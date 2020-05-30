@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Reservation} from '../entities/reservation';
-import {Room} from '../entities/room';
-import {Bill} from '../entities/bill';
-import {Person} from '../entities/person';
-import {User} from '../entities/user';
-import {Contact} from '../entities/contact';
-import {Type} from '../entities/type';
-import {Tag} from '../entities/tag';
+import {Reservation} from '../../entities/reservation';
+import {Room} from '../../entities/room';
+import {Bill} from '../../entities/bill';
+import {Person} from '../../entities/person';
+import {User} from '../../entities/user';
+import {Contact} from '../../entities/contact';
+import {Type} from '../../entities/type';
+import {Tag} from '../../entities/tag';
 
 @Component({
   selector: 'app-reservation-details',
