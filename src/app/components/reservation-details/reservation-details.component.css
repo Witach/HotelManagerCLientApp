@@ -22,4 +22,9 @@
 
 .reservation-details{
   font-size: 20px;
+  width: 50%;
+}
+
+.room-card-details{
+  font-size: 16px;
 }

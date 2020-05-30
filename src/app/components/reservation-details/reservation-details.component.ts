@@ -36,7 +36,7 @@ export class ReservationDetailsComponent implements OnInit {
       tagSet: null
     };
 
-    const roomArray: Array<Room> = [room];  // to sie pozniej zmieni
+    const roomArray: Room[] = [room];  // to sie pozniej zmieni
 
     const someReservation: Reservation = {
       id: 0,
