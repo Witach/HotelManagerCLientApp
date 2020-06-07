@@ -11,19 +11,13 @@
       </div>
 
       <div class="row">
-        <div class="col">
-          <label class="float-left m-1 pl-3">Liczba zarezerwowanych pokoi: {{res.roomSet.length}}</label>
-        </div>
-      </div>
-
-      <div class="row">
         <div class="col-1">
           <label class="float-left m-1 pl-3">Pokoje:</label>
         </div>
         <div class="col">
           <div class="container">
-            <div *ngFor="let room of res.roomSet" class="card shadow-sm rounded float-left m-1">
-              {{room.roomNumber}}
+            <div  class="card shadow-sm rounded float-left m-1">
+              {{res.room.roomNumber}}
             </div>
           </div>
         </div>

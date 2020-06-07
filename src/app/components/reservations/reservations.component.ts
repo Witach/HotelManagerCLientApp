@@ -32,8 +32,8 @@ export class ReservationsComponent implements OnInit {
       description: 'amazing description', price: 34, roomTypeSet: types, tagSet: tags};
 
     this.reservations = [
-      { id: 0, roomSet: [room1, room2], bill: null, fromDate: new Date(), toDate: new Date()},
-      { id: 21, roomSet: [room1, room2], bill: null, fromDate: new Date(), toDate: new Date()},
+      { id: 0, room: room1, bill: null, fromDate: new Date(), toDate: new Date()},
+      { id: 21, room:  room2, bill: null, fromDate: new Date(), toDate: new Date()},
     ];
   }
 

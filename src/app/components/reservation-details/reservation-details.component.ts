@@ -36,11 +36,10 @@ export class ReservationDetailsComponent implements OnInit {
       tagSet: null
     };
 
-    const roomArray: Array<Room> = [room];  // to sie pozniej zmieni
 
     const someReservation: Reservation = {
       id: 0,
-      roomSet: roomArray,
+      room,
       bill: null,
       fromDate: new Date(),
       toDate: new Date()
@@ -59,8 +58,7 @@ export class ReservationDetailsComponent implements OnInit {
       id: 0,
       price: 324.34,
       reservation: someReservation,
-      tenant: person,
-      administrator: null
+      tenant: person
     };
   }
 

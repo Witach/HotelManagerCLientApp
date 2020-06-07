@@ -6,15 +6,15 @@
         <div class="row no-gutters">
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">Pokój {{bill.reservation.roomSet[0].personAmount}}-osobowy</h5>
-              <p class="font-weight-light">{{bill.reservation.roomSet[0].description}}</p>
+              <h5 class="card-title">Pokój {{bill.reservation.room.personAmount}}-osobowy</h5>
+              <p class="font-weight-light">{{bill.reservation.room.description}}</p>
               <p class="card-text">
                 <small class="text-muted">
-                  Wielkość pokoju: <span class="font-weight-bold">{{bill.reservation.roomSet[0].area}}m2</span>
+                  Wielkość pokoju: <span class="font-weight-bold">{{bill.reservation.room.area}}m2</span>
                   <br>
-                  Cena za dzień: <span class="font-weight-bold">{{bill.reservation.roomSet[0].price}}zł</span>
+                  Cena za dzień: <span class="font-weight-bold">{{bill.reservation.room.price}}zł</span>
                   <br>
-                  Numer pokoju: <span class="font-weight-bold">{{bill.reservation.roomSet[0].roomNumber}}</span>
+                  Numer pokoju: <span class="font-weight-bold">{{bill.reservation.room.roomNumber}}</span>
                 </small>
               </p>
             </div>
