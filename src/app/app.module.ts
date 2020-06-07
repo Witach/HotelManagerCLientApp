@@ -26,6 +26,7 @@ import {AuthInterceptor} from './service/auth.interceptor';
 import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
+import { StartPageComponent } from './components/start-page/start-page.component';
 
 
 registerLocaleData(localePl);
@@ -47,7 +48,8 @@ registerLocaleData(localePl);
     AccountComponent,
     ReservationDatePickerComponent,
     ReservationsComponent,
-    ReservationDetailsComponent
+    ReservationDetailsComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

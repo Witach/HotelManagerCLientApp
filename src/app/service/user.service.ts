@@ -31,7 +31,7 @@ export class UserService {
 
   login(username: string, password: string): Observable<LoginCredentials> {
     const httpHeaders = new HttpHeaders({Authorization:  'Basic ' + window.btoa(username + ':' + password)});
-    return this.http.post<any>(`${environment.linkForBackend}/auth`, {},{headers: httpHeaders})
+    return this.http.post<any>(`${environment.linkForBackend}/auth`, {}, {headers: httpHeaders})
       .pipe(map(val => {
         const user: LoginCredentials = {
           token: window.btoa(username + ':' + password),

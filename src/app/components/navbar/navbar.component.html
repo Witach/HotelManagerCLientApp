@@ -1,14 +1,22 @@
 <div class="w-auto navbar">
-  <div class="logo-icon">Hotel Manager <img width="50px" height="50px" [src]="'/assets/images/holidays.png'" alt="Logo hotelu"></div>
-  <div class="nav-list">
-    <ul>
-      <li class="activated">Szukaj pokoju</li>
-      <li>Ustawienia</li>
-      <li>Rezerwacje</li>
-      <li>O nas/Kontakt</li>
-    </ul>
-  </div>
-  <div class="user-card shadow">
-    <span class="text-konto text-xl-center d-inline-block">Konto</span>
-  </div>
+  <div class="logo-icon" (click)="onLogoCLick()" >Hotel Manager <img width="50px" height="50px" [src]="'/assets/images/holidays.png'"
+                                            alt="Logo hotelu"></div>
+  <ng-container *ngIf="userObservable | async else loginCard">
+    <div class="nav-list">
+      <ul>
+        <li routerLink="/home" routerLinkActive="active">Szukaj pokoju</li>
+        <li routerLink="/reservations" routerLinkActive="active">Rezerwacje</li>
+        <li routerLink="/contact" routerLinkActive="active">O nas/Kontakt</li>
+        <li (click)="logout()" routerLinkActive="active">Wylogój się</li>
+      </ul>
+    </div>
+    <div class="user-card user-card-icon shadow" [routerLink]="['account', (userObservable | async).username]">
+      <span class="text-konto text-xl-center d-inline-block">Konto</span>
+    </div>
+  </ng-container>
+  <ng-template #loginCard>
+    <div class="user-card h-60 shadow" >
+      <span class="text-konto text-xl-center d-inline-block" routerLink="/login">Zalogój się <fa-icon class="ml-2" [icon]="faUser"></fa-icon></span>
+    </div>
+  </ng-template>
 </div>

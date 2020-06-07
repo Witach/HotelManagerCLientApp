@@ -3,6 +3,7 @@ import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {NgForm} from '@angular/forms';
 import {tokenReference} from '@angular/compiler';
 import {UserService} from '../../service/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   isEmailValid = true;
   isPasswordValid = true;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,8 +39,11 @@ export class LoginComponent implements OnInit {
     //   this.err = 'Email jest niepoprawny';
     // }
     if (flag) {
-      this.userService.login('admin@wp.pl', 'dupa')
-        .subscribe( val => console.log(val));
+      this.userService.login('admin@wp.pl', 'admin')
+        .subscribe( val => {
+          console.log(val);
+          this.router.navigate(['/home']);
+        });
     }
   }
 

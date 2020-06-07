@@ -3,6 +3,7 @@ import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {UserService} from '../../service/user.service';
 import {catchError} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,9 @@ export class RegisterComponent implements OnInit {
 
   err = '';
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -59,13 +62,16 @@ export class RegisterComponent implements OnInit {
     const password = control.get('password');
     const repeatPassword = control.get('repeatPassword');
     return password && repeatPassword && password.value === repeatPassword.value ? null : {passwordNotTheSame: true};
-  };
+  }
 
   onSubmit(): void {
     const {email, password, contact, name: firstName, lastName, pesel} = this.registerForm.value;
     console.log(this.registerForm);
     this.userService.register({email, password, contact, firstName, lastName, pesel})
-      .subscribe(res => console.log('Stworzono użytkownika'),
+      .subscribe(res => {
+          console.log('Stworzono użytkownika');
+          this.router.navigate(['/login']);
+        },
         err => {
           if (err.status === 409) {
             this.err = 'Użytkownik o podanym email już istnieje';

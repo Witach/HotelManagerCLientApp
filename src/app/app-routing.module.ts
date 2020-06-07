@@ -12,22 +12,19 @@ import {RoomComponent} from './components/room/room.component';
 import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
+import {StartPageComponent} from './components/start-page/start-page.component';
 
 
 const routes: Routes = [
-  {path: 'rooms', component: RoomListComponent},
   {path: 'home', component: HomePageComponent},
-  {path: 'roomCard', component: RoomCardComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'footer', component: FooterComponent},
-  {path: 'search', component: SearchComponent},
-  {path: 'room/:id', component: RoomComponent},
   {path: 'account/:email', component: AccountComponent},
   {path: 'room/:id', component: RoomComponent},
   {path: 'reservations', component: ReservationsComponent},
-  {path: 'reservation/:id', component: ReservationDetailsComponent}
+  {path: 'reservation/:id', component: ReservationDetailsComponent},
+  {path: 'startPage', component: StartPageComponent}
 ];
 
 @NgModule({
