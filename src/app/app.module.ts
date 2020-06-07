@@ -46,7 +46,8 @@ registerLocaleData(localePl);
     ReservationDatePickerComponent,
     AccountComponent,
     ReservationDatePickerComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    ReservationDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -36,7 +36,6 @@ export class ReservationDetailsComponent implements OnInit {
       tagSet: null
     };
 
-
     const someReservation: Reservation = {
       id: 0,
       room,
