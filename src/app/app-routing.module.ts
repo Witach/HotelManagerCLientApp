@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'account/:email', component: AccountComponent},
   {path: 'room/:id', component: RoomComponent},
   {path: 'reservations', component: ReservationsComponent},
-  {path: 'reservation/details', component: ReservationDetailsComponent}
+  {path: 'reservation/:id', component: ReservationDetailsComponent}
 ];
 
 @NgModule({
