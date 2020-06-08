@@ -4,43 +4,30 @@ import {Room} from '../../entities/room';
 import {Bill} from '../../entities/bill';
 import {Type} from '../../entities/type';
 import {Tag} from '../../entities/tag';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {UserService} from '../../service/user.service';
+import {User} from '../../entities/user';
 
 @Component({
   selector: 'app-reservations',
   templateUrl: './reservations.component.html',
   styleUrls: ['./reservations.component.css']
 })
+
 export class ReservationsComponent implements OnInit {
 
-  reservations: Reservation[];
+  arrayBill: Bill[];
 
-  getReservations(): void{
-
-    const types: Type[] = [
-      {id: 0, name: 'jakisTyp'},
-      {id: 1, name: 'jakisTyp2'},
-    ];
-
-    const tags: Tag[] = [
-      {id: 0, name: 'jakisTag1'},
-      {id: 1, name: 'jakisTag2'},
-    ];
-
-    const room1: Room = {id: 0, roomNumber: '23', area: 2, personAmount: 3,
-      description: 'amazing description', price: 34, roomTypeSet: types, tagSet: tags};
-    const room2: Room = {id: 0, roomNumber: '23', area: 2, personAmount: 3,
-      description: 'amazing description', price: 34, roomTypeSet: types, tagSet: tags};
-
-    this.reservations = [
-      { id: 0, room: room1, bill: null, fromDate: new Date(), toDate: new Date()},
-      { id: 21, room:  room2, bill: null, fromDate: new Date(), toDate: new Date()},
-    ];
+  constructor(private http: HttpClient, private userService: UserService) {
   }
-
-  constructor() { }
 
   ngOnInit(): void {
-    this.getReservations();
+    this.getUserReservations().then(x => this.arrayBill = x);
   }
 
+  async getUserReservations(): Promise<Bill[]> {
+    const user = await this.userService.getUserInfo(this.userService.currentUserSubject.getValue().username).toPromise();
+    return await this.http.get<Bill[]>(environment.linkForBackend + '/reservation/person/' + '1' + '/bills').toPromise();
+  }
 }

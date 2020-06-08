@@ -1,20 +1,20 @@
 <div class="container">
-  <div class="card mt-5 shadow main-card">
+  <div class="card my-5 shadow main-card">
     <div class="display-4 text-center card-title mb-5 mt-4">Twoja rezerwacja</div>
     <div class="mb-4 room-card">
       <div class="card mb-4 shadow-sm">
         <div class="row no-gutters">
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">Pokój {{bill.reservation.room.personAmount}}-osobowy</h5>
-              <p class="font-weight-light">{{bill.reservation.room.description}}</p>
+              <h5 class="card-title">Pokój {{bill?.reservation.room.personAmount}}-osobowy</h5>
+              <p class="font-weight-light">{{bill?.reservation.room.description}}</p>
               <p class="card-text">
                 <small class="text-muted">
-                  Wielkość pokoju: <span class="font-weight-bold">{{bill.reservation.room.area}}m2</span>
+                  Wielkość pokoju: <span class="font-weight-bold">{{bill?.reservation.room.area}}m2</span>
                   <br>
-                  Cena za dzień: <span class="font-weight-bold">{{bill.reservation.room.price}}zł</span>
+                  Cena za dzień: <span class="font-weight-bold">{{bill?.reservation.room.price}}zł</span>
                   <br>
-                  Numer pokoju: <span class="font-weight-bold">{{bill.reservation.room.roomNumber}}</span>
+                  Numer pokoju: <span class="font-weight-bold">{{bill?.reservation.room.roomNumber}}</span>
                 </small>
               </p>
             </div>
@@ -30,27 +30,25 @@
         <tr>
           <td>Rezerwacja na nazwisko:</td>
           <td class="font-weight-normal pink">
-            {{bill.tenant.firstName}} {{bill.tenant.lastName}}
+            {{bill?.tenant.firstName}} {{bill?.tenant.lastName}}
           </td>
         </tr>
         <tr>
           <td>Poczatek rezerwacji:</td>
           <td class="font-weight-normal pink">
-            {{bill.reservation.fromDate.getDate()}}.{{bill.reservation.fromDate.getMonth()}}.{{bill.reservation.fromDate.getFullYear()}}
-            {{bill.reservation.fromDate.getHours()}}:{{bill.reservation.fromDate.getMinutes()}}
+            {{bill?.reservation.fromDate}}
           </td>
         </tr>
         <tr>
           <td>Koniec rezerwacji:</td>
           <td class="font-weight-normal pink">
-            {{bill.reservation.toDate.getDate()}}.{{bill.reservation.toDate.getMonth()}}.{{bill.reservation.toDate.getFullYear()}}
-            {{bill.reservation.toDate.getHours()}}:{{bill.reservation.toDate.getMinutes()}}
+            {{bill?.reservation.toDate}}
           </td>
         </tr>
         <tr>
           <td>Do zapłaty:</td>
           <td class="font-weight-normal pink">
-            {{bill.price}}zł
+            {{bill?.price}}zł
           </td>
         </tr>
         </tbody>

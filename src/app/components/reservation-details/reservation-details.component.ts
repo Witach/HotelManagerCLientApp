@@ -7,6 +7,9 @@ import {User} from '../../entities/user';
 import {Contact} from '../../entities/contact';
 import {Type} from '../../entities/type';
 import {Tag} from '../../entities/tag';
+import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-reservation-details',
@@ -16,49 +19,18 @@ import {Tag} from '../../entities/tag';
 export class ReservationDetailsComponent implements OnInit {
 
   bill: Bill;
+  billId: number;
 
-  constructor() {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.getBill();
+    this.billId = +this.router.url.split('/').pop();
+    console.log(this.billId);
+    this.getBill().then(x => this.bill = x);
   }
 
-  getBill(): void {
-    const room: Room = {
-      id: 0,
-      roomNumber: '24',
-      area: 20,
-      personAmount: 4,
-      description: 'Wpaniały pokój dla całej rodziny. Na wyposażeniu wszystko co niezbędne! \"It has a little something for everyone\". 10/10 - IGN',
-      price: 120.00,
-      roomTypeSet: null,
-      tagSet: null
-    };
-
-    const someReservation: Reservation = {
-      id: 0,
-      room,
-      bill: null,
-      fromDate: new Date(),
-      toDate: new Date()
-    };
-
-    const person: Person = {
-      id: 0,
-      firstName: 'Angela',
-      lastName: 'Merkel',
-      bill: null,
-      user: null,
-      contactSet: null
-    };
-
-    this.bill = {
-      id: 0,
-      price: 324.34,
-      reservation: someReservation,
-      tenant: person
-    };
+  async getBill(): Promise<Bill> {
+    return await this.http.get<Bill>(environment.linkForBackend + '/reservation/bills/' + this.billId).toPromise();
   }
-
 }
