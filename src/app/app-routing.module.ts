@@ -13,6 +13,9 @@ import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
 import {StartPageComponent} from './components/start-page/start-page.component';
+import {LoggedGuard} from './guards/logged.guard';
+import {NotloggedGuard} from './guards/notlogged.guard';
+import {IsadminGuard} from './guards/isadmin.guard';
 
 
 const routes: Routes = [
