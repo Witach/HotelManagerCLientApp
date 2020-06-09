@@ -5,6 +5,7 @@ import {Reservation} from '../../entities/reservation';
 import {Router} from '@angular/router';
 import {consoleTestResultHandler} from 'tslint/lib/test';
 import {Room} from '../../entities/room';
+import {ReservationService} from '../../service/reservation.service';
 
 @Component({
   selector: 'app-room',
@@ -18,7 +19,9 @@ export class RoomComponent implements OnInit {
   roomReservations: Reservation[] = [];
   room: Room;
 
-  constructor(private roomService: RoomService, private router: Router) {
+  constructor(private roomService: RoomService,
+              private router: Router,
+              private reservationService: ReservationService) {
   }
 
   ngOnInit(): void {
@@ -29,5 +32,14 @@ export class RoomComponent implements OnInit {
   }
 
 
+  dateSelect(reservationDate: {from: Date, to: Date}) {
+    this.reservationService.room = this.room;
+    this.reservationService.to = reservationDate.to;
+    this.reservationService.from = reservationDate.from;
+  }
+
+  ngOnSubmit(){
+    this.router.navigate(['/reservation', 'create']);
+  }
 
 }

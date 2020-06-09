@@ -5,7 +5,7 @@
     <div *ngFor="let bill of arrayBill" class="container mb-4">
 
       <div class="card shadow-sm rounded w-75 m-auto font-weight-light record">
-        <a href="../reservation/{{bill.id}}">
+        <a routerLink="/reservation/{{bill.id}}">
           <label class="font-weight-normal h5 mt-1 ml-2 mb-2">Rezerwacja</label>
 
           <table class="table-sm table-borderless font-weight-light mb-3 ml-3">

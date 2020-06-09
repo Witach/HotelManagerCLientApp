@@ -16,9 +16,11 @@ import {StartPageComponent} from './components/start-page/start-page.component';
 import {LoggedGuard} from './guards/logged.guard';
 import {NotloggedGuard} from './guards/notlogged.guard';
 import {IsadminGuard} from './guards/isadmin.guard';
+import {ReservationCreateComponent} from './components/reservation-create/reservation-create.component';
 
 
 const routes: Routes = [
+  {path: 'reservation/create', component: ReservationCreateComponent},
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

@@ -27,6 +27,7 @@ import {AccountComponent} from './components/account/account.component';
 import {ReservationsComponent} from './components/reservations/reservations.component';
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
+import { ReservationCreateComponent } from './components/reservation-create/reservation-create.component';
 
 
 registerLocaleData(localePl);
@@ -49,7 +50,8 @@ registerLocaleData(localePl);
     ReservationDatePickerComponent,
     ReservationsComponent,
     ReservationDetailsComponent,
-    StartPageComponent
+    StartPageComponent,
+    ReservationCreateComponent
   ],
   imports: [
     BrowserModule,

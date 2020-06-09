@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbCalendar, NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Reservation} from '../../entities/reservation';
@@ -18,6 +18,9 @@ export class ReservationDatePickerComponent implements OnInit {
   @Input()
   reservations: Reservation[] = [];
 
+  @Output()
+  selectedDate = new EventEmitter<{ from: Date, to: Date }>();
+
   constructor(private calendar: NgbCalendar, private formatter: NgbDateParserFormatter) {
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -31,17 +34,23 @@ export class ReservationDatePickerComponent implements OnInit {
       this.fromDate = date;
     } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
       this.toDate = date;
-      if (this.validChoosedReservation()){
+      if (this.validChoosedReservation()) {
+        const from = this.convertNgbDate(this.fromDate);
+        const to = this.convertNgbDate(this.toDate);
+        this.selectedDate.emit({from, to});
         return;
-        }  else {
+      } else {
         this.toDate = null;
         this.fromDate = null;
       }
-    }
-    else {
+    } else {
       this.toDate = null;
       this.fromDate = date;
     }
+  }
+
+  convertNgbDate(date: NgbDate): Date {
+    return new Date(date.year, date.month - 1, date.day);
   }
 
   validChoosedReservation(): boolean {

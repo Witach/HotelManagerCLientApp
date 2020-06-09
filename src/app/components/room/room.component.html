@@ -53,8 +53,8 @@
   <div class="row justify-content-center">
     <div class="mr-3">
       <span class="bigger-text d-block text-center mb-3">Wybierz date rezerwacji</span>
-      <app-reservation-date-picker [reservations]="roomReservations"></app-reservation-date-picker>
-      <button type="submit" class="form-control btn-light w-75 ml-auto mr-auto mt-4  text-larger">Stwóz rezerwacje
+      <app-reservation-date-picker [reservations]="roomReservations" (selectedDate)="dateSelect($event)" ></app-reservation-date-picker>
+      <button (click)="ngOnSubmit()" type="submit" class="form-control btn-light w-75 ml-auto mr-auto mt-4  text-larger">Stwóz rezerwacje
         <fa-icon class="ml-4" [icon]="faPlus"></fa-icon>
       </button>
     </div>
