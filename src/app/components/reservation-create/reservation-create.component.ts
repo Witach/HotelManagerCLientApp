@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ReservationService} from '../../service/reservation.service';
 import {Room} from '../../entities/room';
-import {faBan} from '@fortawesome/free-solid-svg-icons';
-import {Reservation} from '../../entities/reservation';
-import {Bill} from '../../entities/bill';
 import {ReservationModel} from '../../entities/reservation-model';
 import {Router} from '@angular/router';
 
