@@ -10,6 +10,7 @@
         <li (click)="logout()" routerLinkActive="active">Wylogój się</li>
       </ul>
     </div>
+
     <div class="user-card user-card-icon shadow" [routerLink]="['account', (userObservable | async).username]">
       <span class="text-konto text-xl-center d-inline-block">Konto</span>
     </div>
@@ -19,4 +20,9 @@
       <span class="text-konto text-xl-center d-inline-block" routerLink="/login">Zalogój się <fa-icon class="ml-2" [icon]="faUser"></fa-icon></span>
     </div>
   </ng-template>
+</div>
+<div class="stats-button" *ngIf="canAccess()">
+  <button type="button" class="btn btn-light form-control" routerLink="/stats" >
+    Statystyki  <fa-icon [icon]="faStats"></fa-icon>
+  </button>
 </div>

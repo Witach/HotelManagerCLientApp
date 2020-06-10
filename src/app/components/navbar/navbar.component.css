@@ -91,3 +91,12 @@
 .h-60{
   height: 60%;
 }
+.stats-button{
+  position: fixed;
+  right: 5vh;
+  bottom: 5vh;
+}
+.btn-light {
+  background-color: rgb(238, 174, 202);
+  color: whitesmoke !important;
+}

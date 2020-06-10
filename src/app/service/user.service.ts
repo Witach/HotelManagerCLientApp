@@ -35,7 +35,7 @@ export class UserService {
   }
 
   login(username: string, password: string): Observable<LoginCredentials> {
-    const httpHeaders = new HttpHeaders({Authorization:  'Basic ' + window.btoa(username + ':' + password)});
+    const httpHeaders = new HttpHeaders({Authorization: 'Basic ' + window.btoa(username + ':' + password)});
     return this.http.post<any>(`${environment.linkForBackend}/auth`, {}, {headers: httpHeaders})
       .pipe(map(val => {
         const user: LoginCredentials = {
@@ -76,6 +76,17 @@ export class UserService {
       .pipe(
         tap(val => this.currentUserDataSubject.next(val))
       );
+  }
+
+  public isAdmin(): boolean {
+    const user = this.currentUserDataSubject.getValue();
+    let flag = false;
+    user.role.forEach(rol => {
+      if (rol.name === 'ADMIN') {
+        flag = true;
+      }
+    });
+    return flag;
   }
 
 }

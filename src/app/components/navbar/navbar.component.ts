@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../service/user.service';
 import {Observable} from 'rxjs';
 import {LoginCredentials} from '../../entities/login-credentials';
-import {faUser} from '@fortawesome/free-solid-svg-icons';
-import {Route, Router} from '@angular/router';
+import {faChartBar, faUser} from '@fortawesome/free-solid-svg-icons';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
   faUser = faUser;
   userObservable: Observable<LoginCredentials>;
+  faStats = faChartBar;
 
   constructor(private userService: UserService, private route: Router) {
   }
@@ -22,16 +23,20 @@ export class NavbarComponent implements OnInit {
     this.userObservable = this.userService.currentUser;
   }
 
-  logout(): void{
+  logout(): void {
     this.userService.logout();
     this.route.navigate(['/startPage']);
   }
 
   onLogoCLick() {
-    if(localStorage.getItem('userValue')){
+    if (localStorage.getItem('userValue')) {
       this.route.navigate(['/home']);
     } else {
       this.route.navigate(['/startPage']);
     }
+  }
+
+  canAccess() {
+    return this.userService.isAdmin();
   }
 }

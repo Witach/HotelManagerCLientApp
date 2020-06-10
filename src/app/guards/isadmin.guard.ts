@@ -15,14 +15,8 @@ export class IsadminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const user = this.userService.currentUserDataSubject.getValue();
-    let flag = false;
-    user.role.forEach(rol => {
-      if (rol.name === 'ADMIN') {
-        flag = true;
-      }
-    });
-    return flag;
+
+    return this.userService.isAdmin();
   }
 
 }
