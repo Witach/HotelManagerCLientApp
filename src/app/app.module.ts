@@ -28,6 +28,8 @@ import {ReservationsComponent} from './components/reservations/reservations.comp
 import {ReservationDetailsComponent} from './components/reservation-details/reservation-details.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
 import { ReservationCreateComponent } from './components/reservation-create/reservation-create.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 registerLocaleData(localePl);
@@ -51,7 +53,8 @@ registerLocaleData(localePl);
     ReservationsComponent,
     ReservationDetailsComponent,
     StartPageComponent,
-    ReservationCreateComponent
+    ReservationCreateComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ registerLocaleData(localePl);
     NgbAlertModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBhzAitclN7qmw36iBq7a6KiboI_dVHrdg'
     }),

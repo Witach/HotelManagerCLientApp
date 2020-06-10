@@ -17,6 +17,7 @@ import {LoggedGuard} from './guards/logged.guard';
 import {NotloggedGuard} from './guards/notlogged.guard';
 import {IsadminGuard} from './guards/isadmin.guard';
 import {ReservationCreateComponent} from './components/reservation-create/reservation-create.component';
+import {StatisticsComponent} from './components/statistics/statistics.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'room/:id', component: RoomComponent},
   {path: 'reservations', component: ReservationsComponent},
   {path: 'reservation/:id', component: ReservationDetailsComponent},
-  {path: 'startPage', component: StartPageComponent}
+  {path: 'startPage', component: StartPageComponent},
+  {path: 'stats', component: StatisticsComponent},
 ];
 
 @NgModule({
