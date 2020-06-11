@@ -81,11 +81,13 @@ export class UserService {
   public isAdmin(): boolean {
     const user = this.currentUserDataSubject.getValue();
     let flag = false;
-    user.role.forEach(rol => {
-      if (rol.name === 'ADMIN') {
-        flag = true;
-      }
-    });
+    if (user) {
+      user.role.forEach(rol => {
+        if (rol.name === 'ADMIN') {
+          flag = true;
+        }
+      });
+    }
     return flag;
   }
 

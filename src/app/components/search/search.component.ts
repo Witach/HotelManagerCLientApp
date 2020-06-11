@@ -47,8 +47,8 @@ export class SearchComponent implements OnInit {
 
   onSubmitClick(formRef: NgForm): void {
     this.searching = {
-      fromDate: formRef.value.fromDate,
-      toDate: formRef.value.toDate,
+      fromDate: this.formatter.format(this.fromDate),
+      toDate: this.formatter.format(this.toDate),
       area: formRef.value.area,
       fromPrice: formRef.value.minPrice || null,
       toPrice: formRef.value.maxPrice || null,
@@ -69,7 +69,7 @@ export class SearchComponent implements OnInit {
   }
 
   getStringOfCheckedTags(tags: object): string[] {
-    return  Object.keys(tags).reduce((list, key) => {
+    return Object.keys(tags).reduce((list, key) => {
       if (tags.hasOwnProperty(key) && tags[key]) {
         list.push(key);
       }
@@ -109,7 +109,7 @@ export class SearchComponent implements OnInit {
   }
 
   validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
-    if(!input.length){
+    if (!input.length) {
       return null;
     }
     const parsed = this.formatter.parse(input);
