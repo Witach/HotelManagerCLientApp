@@ -26,20 +26,20 @@ export class LoginComponent implements OnInit {
 
   onSubmit(formRef: NgForm) {
     let flag = true;
-    // const pass = formRef.value.pass;
-    // const email = formRef.value.email;
-    // if (!pass || !this.validatePass(pass)) {
-    //   flag = false;
-    //   this.isPasswordValid = false;
-    //   this.err = 'Hasło jest niepoprawne';
-    // }
-    // if (!email || !this.validateEmail(email)) {
-    //   flag = false;
-    //   this.isEmailValid = false;
-    //   this.err = 'Email jest niepoprawny';
-    // }
+    const pass = formRef.value.pass;
+    const email = formRef.value.email;
+    if (!pass || !this.validatePass(pass)) {
+      flag = false;
+      this.isPasswordValid = false;
+      this.err = 'Hasło jest niepoprawne';
+    }
+    if (!email || !this.validateEmail(email)) {
+      flag = false;
+      this.isEmailValid = false;
+      this.err = 'Email jest niepoprawny';
+    }
     if (flag) {
-      this.userService.login('admin@wp.pl', 'admin')
+      this.userService.login(email, pass)
         .subscribe( val => {
           console.log(val);
           this.router.navigate(['/home']);

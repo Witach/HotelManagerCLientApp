@@ -69,8 +69,14 @@ export class AccountComponent implements OnInit {
 
     this.userService.currentUser.pipe(
       tap(user => {
-        this.userService.getUserInfo(user.username)
-          .subscribe(userInfo => this.attachUser(userInfo));
+        if (this.userService.currentUserDataSubject.getValue()) {
+          this.attachUser(this.userService.currentUserDataSubject.getValue());
+        } else {
+          if (user?.username) {
+            this.userService.getUserInfo(user.username)
+              .subscribe(val => this.attachUser(val));
+          }
+        }
       })
     ).subscribe();
   }

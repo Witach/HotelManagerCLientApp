@@ -25,14 +25,14 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.userService.logout();
-    this.route.navigate(['/startPage']);
+    this.route.navigate(['/']);
   }
 
   onLogoCLick() {
     if (localStorage.getItem('userValue')) {
       this.route.navigate(['/home']);
     } else {
-      this.route.navigate(['/startPage']);
+      this.route.navigate(['/']);
     }
   }
 

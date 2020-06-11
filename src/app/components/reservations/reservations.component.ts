@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Reservation} from '../../entities/reservation';
 import {Room} from '../../entities/room';
 import {Bill} from '../../entities/bill';
@@ -23,11 +23,18 @@ export class ReservationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserReservations().then(x => this.arrayBill = x);
+    this.getUserReservations();
   }
 
-  async getUserReservations(): Promise<Bill[]> {
-    const user = await this.userService.getUserInfo(this.userService.currentUserSubject.getValue().username).toPromise();
-    return await this.http.get<Bill[]>(environment.linkForBackend + '/reservation/person/' + '1' + '/bills').toPromise();
+  async getUserReservations() {
+    let id: number;
+    const username = this.userService.currentUserSubject.getValue().username;
+    if (this.userService.currentUserDataSubject.getValue()) {
+      id = this.userService.currentUserDataSubject.getValue().person.id;
+    } else {
+      id = (await this.userService.getUserInfo(username).toPromise()).person.id;
+    }
+    this.arrayBill = await this.http.get<Bill[]>(environment.linkForBackend + '/reservation/person/' + id + '/bills').toPromise();
+
   }
 }

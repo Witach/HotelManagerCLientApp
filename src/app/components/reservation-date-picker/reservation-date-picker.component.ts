@@ -22,14 +22,15 @@ export class ReservationDatePickerComponent implements OnInit {
   selectedDate = new EventEmitter<{ from: Date, to: Date }>();
 
   constructor(private calendar: NgbCalendar, private formatter: NgbDateParserFormatter) {
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
 
   ngOnInit(): void {
   }
 
   onDateSelection(date: NgbDate) {
+    if (date.before(this.calendar.getToday())) {
+      return;
+    }
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;
     } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
