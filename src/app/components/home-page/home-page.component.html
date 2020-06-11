@@ -4,4 +4,5 @@
   </div>
   <app-search (searchClicked)="onSearchSelected($event)"></app-search>
   <app-room-list [roomList]="roomList"></app-room-list>
+  <app-page-navigation [maxNumber]="totalPagesAmount" (pageSelection)="onPageChanged($event)" [page]="pageNumber"></app-page-navigation>
 </div>

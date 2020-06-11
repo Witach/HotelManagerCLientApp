@@ -30,6 +30,7 @@ import { StartPageComponent } from './components/start-page/start-page.component
 import { ReservationCreateComponent } from './components/reservation-create/reservation-create.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import {ChartsModule} from 'ng2-charts';
+import { PageNavigationComponent } from './components/page-navigation/page-navigation.component';
 
 
 registerLocaleData(localePl);
@@ -54,7 +55,8 @@ registerLocaleData(localePl);
     ReservationDetailsComponent,
     StartPageComponent,
     ReservationCreateComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PageNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,7 @@ registerLocaleData(localePl);
     RoomCardComponent,
     RoomListComponent,
     ReservationDatePickerComponent,
+    PageNavigationComponent,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
