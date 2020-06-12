@@ -47,10 +47,6 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(18)
       ])],
-      pesel: ['', Validators.compose([
-        Validators.pattern(/^[0-9]{11}$/),
-        Validators.required
-      ])],
       contact: ['', Validators.compose([
         Validators.pattern(/^[0-9]{9}$/),
         Validators.required
@@ -65,9 +61,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const {email, password, contact, name: firstName, lastName, pesel} = this.registerForm.value;
+    const {email, password, contact, name: firstName, lastName} = this.registerForm.value;
     console.log(this.registerForm);
-    this.userService.register({email, password, contact, firstName, lastName, pesel})
+    this.userService.register({email, password, contact, firstName, lastName})
       .subscribe(res => {
           console.log('Stworzono użytkownika');
           this.router.navigate(['/login']);

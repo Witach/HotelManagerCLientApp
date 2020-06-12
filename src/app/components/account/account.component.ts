@@ -28,10 +28,6 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginData = this.formBuilder.group({
-      email: ['', Validators.compose([
-        Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/),
-        Validators.required,
-      ])],
       password: ['', Validators.compose([
         Validators.required,
         Validators.maxLength(24),
@@ -53,10 +49,6 @@ export class AccountComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(18)
-      ])],
-      pesel: ['', Validators.compose([
-        Validators.pattern(/^[0-9]{11}$/),
-        Validators.required
       ])],
     });
 
@@ -83,14 +75,10 @@ export class AccountComponent implements OnInit {
 
   attachUser(user: User): void {
     this.userUser = user;
-    this.loginData.patchValue({
-      email: this.userUser?.email || ''
-    });
 
     this.userData.patchValue({
       name: this.userUser?.person?.firstName || '',
       lastName: this.userUser?.person?.lastName || '',
-      pesel: '99999999999'
     });
 
     this.contactForm.patchValue({
@@ -106,9 +94,9 @@ export class AccountComponent implements OnInit {
 
   onSubmitLoginData(): void {
     this.userService.editUser({
-      email: this.loginData.value.email,
+      email: this.userUser.email,
       password: this.loginData.value.password
-    }, this.loginData.value.email)
+    }, this.userUser.email)
       .subscribe(
         res => {
           this.userUser = res;
@@ -139,7 +127,7 @@ export class AccountComponent implements OnInit {
     this.userService.editContact({phoneNumber: contact}, this.userUser.person.contactSet[0].id)
       .subscribe(
         newContacts => {
-          this.userUser.person.contactSet = newContacts;
+          this.userUser.person.contactSet = [newContacts];
           this.attachUser(this.userUser);
         },
         error => this.contactErr = 'Dane nie mogą być edytowane'

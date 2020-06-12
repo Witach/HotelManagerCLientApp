@@ -4,5 +4,4 @@ export interface UserModel {
   contact: string;
   firstName: string;
   lastName: string;
-  pesel: string;
 }

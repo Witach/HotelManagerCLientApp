@@ -40,12 +40,6 @@
           type="text"
           formControlName="lastName"
           class="form-control mt-3 mb-2">
-        <label for="pesel" class="float-left m-2">PESEL</label>
-        <input
-          id="pesel"
-          type="tel"
-          formControlName="pesel"
-          class="form-control mt-3 mb-2">
         <span class="text-red d-block mt-4">  {{err || ' '}}</span>
         <button class="btn btn-light btn-pink text-white"  [disabled]="!registerForm.valid"> Stwórz konto
           <fa-icon [icon]="faLogin"></fa-icon>

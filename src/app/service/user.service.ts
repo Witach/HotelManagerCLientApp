@@ -67,8 +67,8 @@ export class UserService {
     return this.http.put<Person>(environment.linkForBackend + '/people/' + id, person);
   }
 
-  editContact(contact: ContactEdit, id: number): Observable<Contact[]> {
-    return this.http.put<Contact[]>(environment.linkForBackend + '/contacts/' + id, contact);
+  editContact(contact: ContactEdit, id: number): Observable<Contact> {
+    return this.http.put<Contact>(environment.linkForBackend + '/contacts/' + id, contact);
   }
 
   getUserInfo(username: string): Observable<User> {
