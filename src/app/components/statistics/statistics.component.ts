@@ -36,7 +36,7 @@ export class StatisticsComponent implements OnInit {
   ];
 
   public countStats: ChartDataSets[] = [
-    {data: [], label: 'Kwota wydana przez rezerwójących'},
+    {data: [], label: 'Kwota wydana przez rezerwujących'},
   ];
 
   constructor(private statisticsService: StatisticsService) {
@@ -53,7 +53,7 @@ export class StatisticsComponent implements OnInit {
     ];
 
     this.countStats = [
-      {data: stats.totalMoneySpentEachDay, label: 'Kwota wydana przez rezerwójących'},
+      {data: stats.totalMoneySpentEachDay, label: 'Kwota wydana przez rezerwujących'},
     ];
 
     this.moneySum = stats.totalMoneySpent;
