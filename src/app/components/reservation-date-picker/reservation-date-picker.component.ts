@@ -51,7 +51,7 @@ export class ReservationDatePickerComponent implements OnInit {
   }
 
   convertNgbDate(date: NgbDate): Date {
-    return new Date(date.year, date.month - 1, date.day);
+    return new Date(date.year, date.month - 1, date.day + 1);
   }
 
   validChoosedReservation(): boolean {
